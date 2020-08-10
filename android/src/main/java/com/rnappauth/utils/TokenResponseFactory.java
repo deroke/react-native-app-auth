@@ -39,7 +39,7 @@ public final class TokenResponseFactory {
         map.putString("tokenType", response.tokenType);
 
         if (response.accessTokenExpirationTime != null) {
-            map.putLong("accessTokenExpirationTimestamp", response.accessTokenExpirationTime);
+            map.putInt("accessTokenExpirationTimestamp", (int) (response.accessTokenExpirationTime / 1000));
             map.putString("accessTokenExpirationDate", DateUtil.formatTimestamp(response.accessTokenExpirationTime));
         }
 
@@ -61,7 +61,7 @@ public final class TokenResponseFactory {
         map.putArray("scopes", createScopeArray(authResponse.scope));
 
         if (response.accessTokenExpirationTime != null) {
-            map.putLong("accessTokenExpirationTimestamp", response.accessTokenExpirationTime);
+            map.putInt("accessTokenExpirationTimestamp", (int) (response.accessTokenExpirationTime / 1000));
             map.putString("accessTokenExpirationDate", DateUtil.formatTimestamp(response.accessTokenExpirationTime));
         }
 
@@ -83,7 +83,7 @@ public final class TokenResponseFactory {
         map.putArray("scopes", createScopeArray(authResponse.scope));
 
         if (authResponse.accessTokenExpirationTime != null) {
-            map.putLong("accessTokenExpirationTimestamp", response.accessTokenExpirationTime);
+            map.putInt("accessTokenExpirationTimestamp", (int) (authResponse.accessTokenExpirationTime / 1000));
             map.putString("accessTokenExpirationDate", DateUtil.formatTimestamp(authResponse.accessTokenExpirationTime));
         }
 
